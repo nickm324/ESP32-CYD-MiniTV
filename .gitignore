@@ -1,0 +1,25 @@
+# Arduino build output
+build/
+*.bin
+*.elf
+*.hex
+*.map
+
+# Local/editor files
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+Thumbs.db
+.DS_Store
+
+# Media belongs on the SD card, not in Git
+Videos/
+*.mjpeg
+*.mp3
+*.aac
+
+# Local credentials or backups
+config.local.h
+*-settings.json
+*-diagnostics.txt
