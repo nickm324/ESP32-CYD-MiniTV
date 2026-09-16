@@ -1,0 +1,58 @@
+MiniTV local Wi-Fi setup
+========================
+
+Automatic first-run setup (recommended)
+---------------------------------------
+
+If the MiniTV cannot connect to saved or compiled Wi-Fi details, it creates a
+temporary network named MiniTV-Setup-XXXX. The unique network password and the
+setup address are shown on the MiniTV screen and in Serial Monitor.
+
+1. Connect a phone or computer to the displayed MiniTV-Setup network.
+2. Open http://192.168.4.1 if the setup page does not open automatically.
+3. Select the local 2.4 GHz network, enter its password, and save.
+4. The MiniTV restarts, disables the setup network, and joins the local network.
+
+Compiled recovery network (optional)
+------------------------------------
+
+1. Open config.h.
+2. Replace CHANGE_ME in WIFI_SSID with your local Wi-Fi network name.
+3. Replace CHANGE_ME in WIFI_PASSWORD with your Wi-Fi password.
+4. Compile and upload MiniTV.ino using the same Arduino/ESP32 versions used by
+   the working video build.
+5. Open Serial Monitor at 115200 baud after reboot.
+
+The Serial Monitor will show both addresses, for example:
+
+  MiniTV web control: http://minitv.local or http://192.168.1.123
+
+Use either address from a phone or computer connected to the same local Wi-Fi.
+
+Notes
+-----
+
+* The ESP32 supports 2.4 GHz Wi-Fi. The selected network must provide 2.4 GHz.
+* The temporary setup network exists only when normal Wi-Fi cannot connect.
+* Playback stops automatically during an SD-card upload and resumes after the
+  MiniTV restarts.
+* Upload matching .mjpeg and .mp3/.aac files to the same channel. Their base
+  filenames must match.
+* Channel 0 means the /Videos/random folder.
+* After the first successful connection, the network can be changed from the
+  Settings page. Saved credentials are kept in the ESP32's internal storage.
+* The values in config.h remain a recovery network. If saved Wi-Fi details do
+  not connect, the MiniTV tries the compiled network and clears the bad entry.
+* Do not share a compiled firmware image or config.h if that would expose
+  credentials.
+* Daily schedules obtain the current time from the Internet. The default POSIX
+  timezone rule is US Central time with automatic daylight-saving changes.
+* For later firmware updates, use Arduino IDE's Sketch > Export Compiled Binary
+  command, then upload the main MiniTV.ino.bin file from Firmware update. Never
+  upload the bootloader or partitions .bin files there.
+* Backup & restore exports non-secret settings and channel labels as JSON. Wi-Fi
+  credentials and media files are intentionally excluded.
+* Administrator protection is optional and can be enabled from Settings. The
+  username is admin. The password is excluded from backups.
+* To recover from a forgotten administrator password, hold the board button for
+  three seconds while powering on. This clears only the web password.
