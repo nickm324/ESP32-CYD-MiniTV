@@ -23,6 +23,34 @@ Version **1.0.0** is the first stable release of this Wi-Fi edition.
 - Remembers channel, volume, brightness, mute state, and settings across restarts
 - Physical one-button controls remain available without the web interface
 
+## Web interface
+
+The responsive local dashboard separates playback and maintenance tools with a consistent sidebar. These screenshots were captured from the final 0.11.0 development build; the interface is unchanged in version 1.0.0.
+
+### Playback controls
+
+Control playback, select channels, and adjust volume and brightness in real time.
+
+![MiniTV playback controls](assets/screenshots/controls.png)
+
+### Upload media
+
+Upload matching `.mjpeg` and `.mp3` files together, with channel selection and progress reporting.
+
+![MiniTV media upload](assets/screenshots/upload.png)
+
+### Channels and files
+
+Rename channels and titles, reorder channels, and delete matching media pairs.
+
+![MiniTV channel and file management](assets/screenshots/channels-and-files.png)
+
+### Settings
+
+Configure sleep timers, device identity, administrator protection, Wi-Fi, and scheduling.
+
+![MiniTV settings](assets/screenshots/settings.png)
+
 ## Supported hardware
 
 The included profiles support:
