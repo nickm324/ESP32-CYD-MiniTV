@@ -2,6 +2,11 @@
 
 All notable changes to ESP32 CYD MiniTV are documented here.
 
+## 1.0.1 - 2026-09-17
+
+- Added decoder callback compatibility for both libhelix 0.8.1 and 0.9.x.
+- Clarified the supported libhelix versions and callback troubleshooting steps.
+
 ## 1.0.0 - 2026-09-16
 
 First stable release of the Wi-Fi-managed CYD edition.

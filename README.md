@@ -4,7 +4,7 @@
 
 A Wi-Fi-managed miniature television for the ESP32 Cheap Yellow Display (CYD). It plays 320×240 MJPEG video with MP3 audio from a microSD card and provides a responsive browser interface for playback, channels, uploads, settings, diagnostics, and over-the-air firmware updates.
 
-Version **1.0.0** is the first stable release of this Wi-Fi edition.
+Version **1.0.1** is the current stable release of this Wi-Fi edition.
 
 > This project builds on [DynaMight1124/ESP32-MiniTV-Player](https://github.com/DynaMight1124/ESP32-MiniTV-Player), which in turn builds on the Mini Lego TV / Mini Retro TV work by Eric N. (ThatProject) and moononournation. See [Credits and project history](docs/CREDITS.md) for the full attribution chain.
 
@@ -25,7 +25,7 @@ Version **1.0.0** is the first stable release of this Wi-Fi edition.
 
 ## Web interface
 
-The responsive local dashboard separates playback and maintenance tools with a consistent sidebar. These screenshots were captured from the final 0.11.0 development build; the interface is unchanged in version 1.0.0.
+The responsive local dashboard separates playback and maintenance tools with a consistent sidebar. These screenshots were captured from the final 0.11.0 development build; the interface is unchanged in version 1.0.x.
 
 ### Playback controls
 
@@ -70,7 +70,7 @@ The tested target for this release is the classic ESP32-2432S028 CYD shown above
 - ESP32 boards package **2.0.17**
 - [Arduino_GFX](https://github.com/moononournation/Arduino_GFX) **1.6.0**
 - [JPEGDEC](https://github.com/bitbank2/JPEGDEC)
-- [arduino-libhelix](https://github.com/pschatzmann/arduino-libhelix)
+- [libhelix / codec-helix](https://github.com/pschatzmann/codec-helix) **0.8.1 or 0.9.x**
 
 The firmware uses APIs from ESP32 core 2.0.17. Newer 3.x cores require compatibility changes and are not recommended for this release.
 
@@ -152,6 +152,7 @@ After the first USB installation, export a compiled binary from Arduino IDE and 
 ## Troubleshooting
 
 - **No audio:** Verify an 8-ohm speaker is connected to `SPEAKER`, the standard CYD profile is selected, GPIO 4 controls the active-low amplifier enable, and GPIO 26 is the DAC output.
+- **libhelix callback compilation error:** Update to the latest project source. It includes callback overloads for both the three-argument API in libhelix 0.8.1 and the four-argument API in libhelix 0.9.x. Remove duplicate or older libhelix folders from your Arduino `libraries` directory if Arduino reports multiple copies.
 - **Corrupted picture or wrong colors:** Confirm the correct CYD profile and display inversion setting, then re-encode at exactly 320×240, 24 FPS.
 - **Wi-Fi disappears during playback:** Use MP3, ESP32 core 2.0.17, and a stable 5 V supply. Avoid AAC/SBR on the Wi-Fi build.
 - **Large upload stalls:** Use the built-in Upload page, allow playback to stop, and keep the browser open. The uploader sends verified chunks and retries transient SD writes.
