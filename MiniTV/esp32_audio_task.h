@@ -146,6 +146,16 @@ static void aacAudioDataCallback(AACFrameInfo &info, int16_t *pwm_buffer, size_t
     total_play_audio_ms += millis() - s;
 }
 
+// libhelix 0.9.x added an optional caller/context argument to decoder
+// callbacks. Keep both overloads so the sketch also remains compatible with
+// the three-argument callback used by the tested 0.8.1 release.
+static void aacAudioDataCallback(AACFrameInfo &info, int16_t *pwm_buffer,
+                                 size_t len, void *context)
+{
+    (void)context;
+    aacAudioDataCallback(info, pwm_buffer, len);
+}
+
 static void mp3AudioDataCallback(MP3FrameInfo &info, int16_t *pwm_buffer, size_t len)
 {
     unsigned long s = millis();
@@ -191,6 +201,13 @@ static void mp3AudioDataCallback(MP3FrameInfo &info, int16_t *pwm_buffer, size_t
     size_t i2s_bytes_written = 0;
     i2s_write(_i2s_num, pwm_buffer, len * 2, &i2s_bytes_written, portMAX_DELAY);
     total_play_audio_ms += millis() - s;
+}
+
+static void mp3AudioDataCallback(MP3FrameInfo &info, int16_t *pwm_buffer,
+                                 size_t len, void *context)
+{
+    (void)context;
+    mp3AudioDataCallback(info, pwm_buffer, len);
 }
 
 static uint8_t _frame[MP3_MAX_FRAME_SIZE]; 

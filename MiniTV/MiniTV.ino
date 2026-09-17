@@ -6,7 +6,7 @@
  * Built for the ESP32 Arduino 2.x API. ESP32 core 2.0.17 is recommended.
  * Required libraries:
  * https://github.com/moononournation/Arduino_GFX.git (Used v1.6.0)
- * https://github.com/pschatzmann/arduino-libhelix/releases/tag/v0.8.1 (Used 0.8.1)
+ * https://github.com/pschatzmann/codec-helix (Compatible with 0.8.1 and 0.9.x)
  * https://github.com/bitbank2/JPEGDEC.git (Used 1.8.4)
  * https://github.com/vshymanskyy/Preferences (Used v2.2.2)
  */
@@ -33,7 +33,7 @@
 
 Preferences preferences;
 #define APP_NAME "video_player"
-#define MINITV_VERSION "1.0.0"
+#define MINITV_VERSION "1.0.1"
 #define K_VIDEO_INDEX "video_index"
 #define BASE_PATH "/Videos/"
 static int video_count = 0;
