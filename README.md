@@ -128,7 +128,21 @@ ffmpeg -i input.mp4 -an -pix_fmt yuvj420p -q:v 8 -vf "fps=24,scale=320:240:flags
 ffmpeg -i input.mp4 -vn -ar 44100 -ac 1 -b:a 24k -filter:a "volume=-8dB" output.mp3
 ```
 
-The two output files must have identical base names. A GUI converter is also available from [DynaMight1124/MiniTV-Video-Converter](https://github.com/DynaMight1124/MiniTV-Video-Converter).
+The two output files must have identical base names.
+
+### MiniTV Video Converter
+
+[MiniTV Video Converter](https://github.com/DynaMight1124/MiniTV-Video-Converter) by **DynaMight1124** is a convenient Windows GUI for preparing compatible MiniTV media. It can:
+
+- Convert common local video files to MJPEG video with AAC or MP3 audio
+- Produce output for 288×240 and 320×240 MiniTV displays
+- Download and convert a video from a YouTube URL using `yt-dlp`
+- Adjust frame rate, JPEG quality, and audio volume
+- Give matching video and audio files the correct base name and folder structure
+
+For this CYD project, select **320×240 Display**, **24 FPS**, and **MP3 Audio**. Keep the video and audio filenames identical except for their extensions, then place or upload the pair into the same channel folder.
+
+Download the converter or its Python source from the [author's original repository](https://github.com/DynaMight1124/MiniTV-Video-Converter). The converter is a separate third-party project and its executable is not redistributed here. Please consult its repository for current downloads, requirements, source code, and usage information.
 
 ## Controls
 
