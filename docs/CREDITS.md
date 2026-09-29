@@ -8,6 +8,10 @@ ESP32 CYD MiniTV is a continuation of several open-source miniature television p
 2. **Eric N. / ThatProject** created the [Mini Lego TV](https://youtu.be/2TOVohmUqOE) and documented the related [Mini Retro TV](https://www.instructables.com/Mini-Retro-TV/) project.
 3. **DynaMight1124** created [ESP32-MiniTV-Player](https://github.com/DynaMight1124/ESP32-MiniTV-Player), adding button control, dynamic channels, random playback, CYD support, and multi-device configuration. That repository was the direct starting point for this edition.
 
+## Companion tools
+
+- **DynaMight1124** also created [MiniTV Video Converter](https://github.com/DynaMight1124/MiniTV-Video-Converter), a Windows/Python utility for converting local files or online videos into the matching MJPEG and audio files used by MiniTV projects. It is an independent third-party project and is linked rather than redistributed here.
+
 ## Libraries
 
 - [Arduino_GFX](https://github.com/moononournation/Arduino_GFX) by moononournation
